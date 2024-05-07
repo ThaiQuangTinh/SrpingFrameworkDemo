@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titlePage}"></title>
+    <!-- CSS stylesheets -->
+    <!--    <link rel="stylesheet" href="/css/styles.css">-->
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="logo">
+        <h1>My Website</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main content -->
+<main>
+    <!-- Content will be rendered here -->
+    <section th:replace="${contentTemplate}"></section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript scripts -->
+<!--<script src="/js/scripts.js"></script>-->
+</body>
+</html>

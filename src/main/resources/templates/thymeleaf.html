@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+</head>
+<body>
+<!--Simple Attributes-->
+<span th:text="${message}"/>
+
+<!-- Collection Attributes-->
+<div>
+    <tr th:each="student: ${students}">
+        <td th:text="${student.name}"/>
+        <td th:text="${student.age}"/>
+    </tr>
+</div>
+
+<!--  Conditional Evaluation-->
+<div th:if="${student1 != null and student1.age > 18}">
+    <h2 th:text="${student1.name + ' is enough old'}"/>
+</div>
+
+<div th:unless="${ student2.age > 18}">
+    <h2 th:text="${student2.name + ' is not enough old'}"/>
+</div>
+
+<!-- Handling user input-->
+<form action="#" th:action="@{/saveStudentData}" th:object="${student3}" method="post">
+    <table border="1">
+        <tr>
+            <td><label th:text="Name"/></td>
+            <td><label>
+                <input type="text" th:field="*{name}"/>
+            </label></td>
+        </tr>
+        <tr>
+            <td><label th:text="Age"/></td>
+            <td><label>
+                <input type="text" th:field="*{age}"/>
+            </label></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
